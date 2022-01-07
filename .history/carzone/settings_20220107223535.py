@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '91pp4+z2$9oqzqw-oq836f$ty$+6ec9uhk@+s5gxmb%!5)(qbo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -65,7 +65,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'carzone.urls'
@@ -103,9 +102,7 @@ WSGI_APPLICATION = 'carzone.wsgi.application'
 #    }
 #}
 
-# database heroku connection
-
-DATABASES = {'default': dj_database_url.config(default="postgres://postgres:root@localhost/carzone")}
+DATABASES = {'default': dj_database_url.config(default="postgres://user:pass@localhost/dname")}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -168,7 +165,3 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'jimmy.katiyar11@gmail.com'
 EMAIL_HOST_PASSWORD = 'admin@sunnyjimmy12'
 EMAIL_PORT = 587
-
-#whitenoise setting
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
